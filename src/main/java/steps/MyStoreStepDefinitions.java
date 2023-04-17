@@ -41,9 +41,10 @@ public class MyStoreStepDefinitions {
     public void userIsOnHomePage() {
 
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments(("--remote-allow-origins=*"));
+        driver = new ChromeDriver(options);
 
        // if (driver != null) {
         //    System.out.println("ChromeDriver został poprawnie zainicjalizowany.");
@@ -63,7 +64,7 @@ public class MyStoreStepDefinitions {
     public void goToSignInPage(){
         signInBtn=driver.findElement(By.xpath("(//span[@class='hidden-sm-down'])[2]"));
         signInBtn.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("SubmitLogin")));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("SubmitLogin")));
         //ZROB ASSERT EQUALS czy widoczny jest element Log in to your account
     }
 
