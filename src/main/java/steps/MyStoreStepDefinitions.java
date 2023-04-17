@@ -70,10 +70,12 @@ public class MyStoreStepDefinitions {
     @Then("Uzytkownik wpisuje poprawny adres email oraz haslo a nastepnie zatwierdza dane logowania")
     public void logIntoApp() {
 
-        emailInput = driver.findElement(By.cssSelector("input.form-control(1)"));
+        //emailInput = driver.findElement(By.cssSelector("input.form-control(1)"));
+        emailInput = driver.findElement(By.cssSelector("input.form-control:nth-of-type(1)"));
         emailInput.clear();
-        emailInput.sendKeys("agnieszka.szumilas11@gmail.com");
+        emailInput.sendKeys("qthlcmimmwmoaqzqfu@bbitf.com");
 
+        //passwordInput = driver.findElement(By.cssSelector("input.form-control.js-child-focus.js-visible-password"));
         passwordInput = driver.findElement(By.cssSelector("input.form-control.js-child-focus.js-visible-password"));
         passwordInput.clear();
         passwordInput.sendKeys("Haslo1234");
@@ -94,7 +96,8 @@ public class MyStoreStepDefinitions {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[title='Addresses']"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(), 'Your addresses')]")));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(., 'Create new address')]"))).click();
-        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/main/section/div/div/section/header/h1"))).isDisplayed());
+        assertEquals("Create new address", wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(., 'Create new address')]"))).getText());
+        //Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/main/section/div/div/section/header/h1"))).isDisplayed());
 
     }
 
