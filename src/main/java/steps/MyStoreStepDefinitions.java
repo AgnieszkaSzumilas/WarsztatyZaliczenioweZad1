@@ -40,7 +40,7 @@ public class MyStoreStepDefinitions {
     @Given("Uzytkownik znajduje sie na stronie glownej aplikacji")
     public void userIsOnHomePage() {
 
-        System.setProperty("webdriver.chrome.driver", "src/main/java/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         ChromeOptions options = new ChromeOptions();
         options.addArguments(("--remote-allow-origins=*"));
